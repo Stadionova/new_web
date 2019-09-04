@@ -1,0 +1,62 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    text-align: justify;
+    background: #c7b39b url(img/flower.jpg);
+    margin: 0 auto;
+}
+
+.hat {
+    height: 70px;
+    background-color: #57756a;
+}
+
+.bodyDiv {
+    opacity: 0,5;
+    height: 600px;
+    margin-top: 200px;
+    opacity: 0.75;
+    height: 185px;
+}
+
+.hat div {
+    display: inline-block;
+    padding: 8px;
+    text-align: center;
+    margin-top: 15px;
+    background-color: #a9b2a2;
+    border-radius: 3px;
+    color: blanchedalmond;
+    font-size: 11pt;
+    vertical-align: middle;
+}
+
+.hat div:nth-child(1) {
+    background-color: #57756a;
+    color: #c7b39b;
+    font-size: 14pt;
+    margin-left: 15px;
+}
+
+.hat div:nth-child(6),
+.hat div:nth-child(7) {
+    background-color: #57756a;
+    color: #c7b39b;
+    font-size: 14pt;
+}
+
+.hat div:nth-child(2),
+.hat div:nth-child(3),
+.hat div:nth-child(4),
+.hat div:nth-child(5) {
+    margin-right: 10px;
+}
+
+.hat div:nth-child(6) {
+    margin-left: 570px;
+    margin-right: 5px;
+}
+
+.hat div:nth-child(7),
+.hat div:nth-child(8) {
+    margin-right: 10px;
+}
