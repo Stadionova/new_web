@@ -5,12 +5,23 @@
     text-align: center;
 }
 
+body {
+    /* background: #c7b39b url(img/flower.jpg); */
+    /* чтобы скролинга не было */
+    /* position: fixed; */
+    /* background: no-repeat; */
+    background: url(img/flower.jpg) no-repeat;
+    /* background-size: cover; */
+    /* background-position: center center; */
+    /* изображение остаётся на месте даже при скролинге страницы */
+    background-attachment: fixed;
+}
+
 .wholeDiv {
     /* центрировала весь сайт кроме фото на фоне */
     margin: 0 auto;
     width: 1366px; 
     height: 625px;
-    background: #c7b39b url(img/flower.jpg);
 }
 
 .hat {
@@ -69,10 +80,15 @@ div p {
     border: 1px solid #7c6f60 transparent;
 }
 
+.select {
+    text-align: center;
+}
+
 .hat div:nth-child(1) {
     background-color: #57756a;
     color: #d1c2b0;
     font-size: 16pt;
+    margin-left: 5px;
 }
 
 .hat div:nth-child(6),
@@ -87,11 +103,11 @@ div p {
 .hat div:nth-child(3),
 .hat div:nth-child(4),
 .hat div:nth-child(5) {
-    margin-right: 10px;
+    margin-right: 5px;
 }
 
 .hat div:nth-child(6) {
-    margin-left: 100px;
+    margin-left: 80px;
     margin-right: 10px;
 }
 
@@ -114,11 +130,21 @@ input {
     margin-left: 10px;
     width: 200px;
     height: 30px;
+    outline: none;
 }
 
 .field {
     width: 200px;
     height: 25px;
+}
+
+.field:focus {
+    border-color: rgb(245, 223, 189);
+}
+
+.authorization:hover {
+    font-size: 14pt;
+    opacity: 0.75;
 }
 
 .button {
@@ -127,7 +153,20 @@ input {
 }
 
 .hat div:nth-child(7),
-.hat div:nth-child(8),
+.hat div:nth-child(8) {
+    margin-right: 5px;
+}
+
 .hat div:nth-child(9) {
-    margin-right: 10px;
+    margin-right: 25px;
+}
+
+.first:hover ~ .selector a { 
+    color: #57756a;
+}
+
+.secondBlock p {
+    text-align: center;
+    margin-top: 100px;
+    color: rgb(245, 223, 189);
 }
