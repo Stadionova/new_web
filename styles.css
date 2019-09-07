@@ -10,27 +10,31 @@ body {
     /* чтобы скролинга не было */
     /* position: fixed; */
     /* background: no-repeat; */
-    background: url(img/flower.jpg) no-repeat;
-    /* background-size: cover; */
-    /* background-position: center center; */
-    /* изображение остаётся на месте даже при скролинге страницы */
-    background-attachment: fixed;
+    background: url(img/flower_orig.jpg);
+    background-size: cover;
+    /* чтобы при уменьшении размера страницы через ctrl вёрстка не съезжала, но к сожалению картинка не уменьшается */
+    /* на сайте, копию которого делаю, та же самая проблема */
+    /* background-position: center center;  */
+    background-attachment: fixed; /* изображение остаётся на месте даже при скролинге страницы */
 }
 
-.wholeDiv {
-    /* центрировала весь сайт кроме фото на фоне */
-    margin: 0 auto;
-    width: 1366px; 
+.wholeDiv { 
+    margin: 0 auto; /* центрировала весь сайт кроме фото на фоне */
+    width: 1349px; 
     height: 625px;
+    display: flex; /* так как при фиксировании шапка упала вниз, добавила атрибут display чтобы блоки раздвинуть */ 
 }
 
 .hat {
     height: 70px;
+    width: 1349px; 
     background-color: #57756a;
+    position: fixed; /* зафиксировала шапку при скролинге, но она упала вниз */
+    z-index: 1000; /* позволяет скролить страницу под шапку, а не поверх шапки */
 }
 
 a { 
-    text-decoration: none; /* Отменяем подчеркивание у ссылки */
+    text-decoration: none; /* отменила подчеркивание у ссылки */
     color: rgb(245, 223, 189);
 } 
 
@@ -41,23 +45,24 @@ a {
     opacity: 0.75;
     margin-left: 250px;
     margin-right: 180px;
+    margin-top: 100px; /* отодвинула центральный блок от фиксированной при скролинге шапки */
     color: rgb(245, 223, 189);
 }
 
 h3 {
-    font-size: 70pt;
+    font-size: 60pt;
     margin: 35px;
-    padding-top: 20px;
+    padding-top: 5px;
 }
 
 div p {
-    width: 380px;
-    margin-left: 250px;
+    width: 530px;
+    margin-left: 188px;
     text-align: justify;
     vertical-align: middle;
-    font-size: 13pt;
+    font-size: 14pt;
     line-height: 2em;
-    margin-top: 80px;
+    margin-top: 40px;
 }
 
 .hat div {
@@ -70,7 +75,7 @@ div p {
     background-color: #a9b2a2;
     border-radius: 3px;
     color: rgb(245, 223, 189);
-    font-size: 11pt;
+    font-size: 10pt;
     vertical-align: middle;
 }
 
@@ -87,8 +92,7 @@ div p {
 .hat div:nth-child(1) {
     background-color: #57756a;
     color: #d1c2b0;
-    font-size: 16pt;
-    margin-left: 5px;
+    font-size: 15pt;
 }
 
 .hat div:nth-child(6),
@@ -96,18 +100,17 @@ div p {
 .hat div:nth-child(8) {
     background-color: #57756a;
     color: #c7b39b;
-    font-size: 14pt;
+    font-size: 13pt;
 }
 
 .hat div:nth-child(2),
 .hat div:nth-child(3),
-.hat div:nth-child(4),
-.hat div:nth-child(5) {
+.hat div:nth-child(4) {
     margin-right: 5px;
 }
 
 .hat div:nth-child(6) {
-    margin-left: 80px;
+    margin-left: 70px;
     margin-right: 10px;
 }
 
@@ -142,14 +145,22 @@ input {
     border-color: rgb(245, 223, 189);
 }
 
+.field:hover {
+    border-color: rgb(245, 223, 189);
+}
+
 .authorization:hover {
-    font-size: 14pt;
+    font-size: 13pt;
     opacity: 0.75;
 }
 
-.button {
+.buttonHat {
     width: 80px;
     height: 30px;
+}
+
+.buttonHat:hover {
+    border-color: rgb(245, 223, 189);
 }
 
 .hat div:nth-child(7),
@@ -167,6 +178,60 @@ input {
 
 .secondBlock p {
     text-align: center;
-    margin-top: 100px;
+    margin-top: 120px;
+    margin-bottom: 20px;
+    color: rgb(247, 238, 226);
+}
+
+button {
+    display: flex;
+    float: left; /* расположила кнопки рядом */
+    padding: 8px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+    margin-top: 35px;
+    margin-right: 20px;
+    background-color: #a9b2a2;
+    border-radius: 3px;
     color: rgb(245, 223, 189);
+    font-size: 11pt;
+    vertical-align: middle;
+    background-color: #879180;
+    text-shadow: -1px 1px #646960;
+    border: none;
+    outline: none;
+}
+
+button:hover {
+    background-color: #7c6f60;
+    text-shadow: -1px 1px #665b4e;
+}
+
+.buttons {
+    margin-left: 290px;
+}
+
+ul {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.liTag {
+    opacity: 0.90;
+    border-width:2px;
+    border-color:white;
+    border-radius:4px;
+    background: -webkit-linear-gradient(top, rgb(245, 223, 189) 0%, rgb(245, 223, 189) 0%); /* фон всех новый идей */
+    list-style-type: none; 
+    margin-left: 460px; 
+    margin-top: 50px; /* добавила отступ сверху для нового div */
+    margin-bottom: 50px; /* добавила отступ снизу для нового div */
+    padding-top: 20px;
+    display: 'block'; /* отображение всех li, в скрипте при нажатии на кнопку меняю значение этого свойства на none */
+    color: #51665e;
+}
+
+.pTag {
+    margin-top: 10px; 
 }
