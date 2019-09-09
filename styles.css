@@ -5,6 +5,10 @@
     text-align: center;
 }
 
+.likeImg {
+    background: url(img/flower.jpg);
+}
+
 body {
     /* background: #c7b39b url(img/flower.jpg); */
     /* чтобы скролинга не было */
@@ -16,21 +20,22 @@ body {
     /* на сайте, копию которого делаю, та же самая проблема */
     /* background-position: center center;  */
     background-attachment: fixed; /* изображение остаётся на месте даже при скролинге страницы */
+    overflow-y: scroll; /* скрол по умолчанию есть, даже если не понадобится, благодаря этому блоки не прыгают */
 }
 
 .wholeDiv { 
     margin: 0 auto; /* центрировала весь сайт кроме фото на фоне */
     width: 1349px; 
-    height: 625px;
+    height: 575px;
     display: flex; /* так как при фиксировании шапка упала вниз, добавила атрибут display чтобы блоки раздвинуть */ 
 }
 
 .hat {
     height: 70px;
-    width: 1349px; 
+    width: 1365px; 
     background-color: #57756a;
     position: fixed; /* зафиксировала шапку при скролинге, но она упала вниз */
-    z-index: 1000; /* позволяет скролить страницу под шапку, а не поверх шапки */
+    z-index: 101; /* позволяет скролить страницу под шапку, а не поверх шапки */
 }
 
 a { 
@@ -41,18 +46,18 @@ a {
 .bodyDiv {
     width: 900px;
     background-color: #57756a;
-    height: 500px;
+    height: 525px;
     opacity: 0.75;
     margin-left: 250px;
     margin-right: 180px;
-    margin-top: 100px; /* отодвинула центральный блок от фиксированной при скролинге шапки */
+    margin-top: 85px; /* отодвинула центральный блок от фиксированной при скролинге шапки */
     color: rgb(245, 223, 189);
 }
 
 h3 {
-    font-size: 60pt;
-    margin: 35px;
-    padding-top: 5px;
+    font-size: 50pt;
+    margin: 30px;
+    padding-top: 3px;
 }
 
 div p {
@@ -66,7 +71,7 @@ div p {
 }
 
 .hat div {
-    display: inline-block;
+    display: inline-block; /* все кнопки в шапке располагаются рядом, а не друг под другом */
     padding: 8px;
     padding-left: 10px;
     padding-right: 10px;
@@ -76,7 +81,6 @@ div p {
     border-radius: 3px;
     color: rgb(245, 223, 189);
     font-size: 10pt;
-    vertical-align: middle;
 }
 
 .select:hover {
@@ -176,11 +180,13 @@ input {
     color: #57756a;
 }
 
-.secondBlock p {
+.secondBlock {
+    display: flex;
+    float: right;
     text-align: center;
-    margin-top: 120px;
-    margin-bottom: 20px;
-    color: rgb(247, 238, 226);
+    margin-top: 40px;
+    color: white;
+    margin-right: 365px;
 }
 
 button {
@@ -190,7 +196,7 @@ button {
     padding-left: 10px;
     padding-right: 10px;
     text-align: center;
-    margin-top: 35px;
+    margin-top: 30px;
     margin-right: 20px;
     background-color: #a9b2a2;
     border-radius: 3px;
@@ -213,8 +219,9 @@ button:hover {
 }
 
 ul {
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin-right: 420px;
+    margin-top: 45px;
+    display: inline-block; /* смогла все блоки с новыми идеями зафиксировать при изменении масштаба страницы */
 }
 
 .liTag {
@@ -224,9 +231,9 @@ ul {
     border-radius:4px;
     background: -webkit-linear-gradient(top, rgb(245, 223, 189) 0%, rgb(245, 223, 189) 0%); /* фон всех новый идей */
     list-style-type: none; 
+    margin-top: 10px;
     margin-left: 460px; 
-    margin-top: 50px; /* добавила отступ сверху для нового div */
-    margin-bottom: 50px; /* добавила отступ снизу для нового div */
+    margin-bottom: 30px; /* добавила отступ снизу для нового div */
     padding-top: 20px;
     display: 'block'; /* отображение всех li, в скрипте при нажатии на кнопку меняю значение этого свойства на none */
     color: #51665e;
@@ -234,4 +241,21 @@ ul {
 
 .pTag {
     margin-top: 10px; 
+}
+
+#divImg {
+    margin-top: 165px;
+    display: flex;
+    margin-left: 15px;
+}
+
+img {
+    width: 25px;
+    height: 20px;
+    text-align: left;
+}
+
+#divNum {
+    float: right;
+    margin: 0 auto;
 }

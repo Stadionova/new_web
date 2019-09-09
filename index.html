@@ -49,10 +49,8 @@
                 <div class="buttons">
                     <div><button onclick="menuOpenAndClose()">VIEW IDEAS</button></div>
                     <div><button onclick="createLiWithIdea()">SUBMIT A NEW IDEA</button></div>
+                    <div class="secondBlock">Scroll down to view ideas</div>
                 </div>
-            </div>
-            <div class="secondBlock">
-                <p>Scroll down to view ideas</p>
             </div>
         </div>
     </div>
@@ -93,17 +91,6 @@
         //     newDiv.style.border = '1px solid #42554e'; // задала границы для нового div
         // }
 
-        // не знаю почему, но скрывать и раскрывать элементы можно только через id
-        // но проблема в том, что id уникален, поэтому я каждый раз скрываю и показываю один и тот же блок
-
-        // <input type="button" id="candies" value="▶ ▼ Сладости (нажми меня)!" />
-
-        //     <ul id='elemCandy' class="note">
-        //         <li>Пирожное</li>
-        //         <li>Пончик</li>
-        //         <li>Мёд</li>
-        //     </ul>
-
         // создала ul, в который буду помещаться новые идеи
         let ulTag = document.createElement('ul'); // создала новый элемент с тегом ul
         ulTag.setAttribute('id', 'page'); // добавила атрибут id и его значение page для тега ul
@@ -116,6 +103,7 @@
             liTag.textContent = prompt('Type your name'); // заполнила тег содержимым 
             liTag.className = "liTag"; // создала класс для newDiv
             page.appendChild(liTag); // добавила новый <li> в конец <ul> по id = page
+
             let pTag = document.createElement('p'); // создала новый элемент с тегом li
             pTag.textContent = prompt('Type your Interface or App #IDEA'); // заполнила тег содержимым
             pTag.className = "pTag"; // создала класс для newDiv
@@ -124,16 +112,62 @@
             liTag.style.width = '450px'; // задала ширину для нового div
             liTag.style.height = '250px'; // задала высоту для нового div
             liTag.style.border = '1px solid #57756a'; // задала границы для нового div
+
+            var divImg = document.createElement("div"); // добавила div с лайком в li
+            divImg.id = "divImg";
+            liTag.appendChild(divImg);
+            divImg.style.width = '100px';
+            divImg.style.height = '100px';
+
+            var divImgTwo = document.createElement("div"); // добавила div с лайком в li
+            divImgTwo.id = "divImgTwo";
+            divImg.appendChild(divImgTwo);
+
+            var heartImg = document.createElement('img'); // добавила картинку сердечка в div для сердечка
+            heartImg.src = 'img/heart.png';
+            heartImg.id = "heartImg";
+            heartImg.onmousedown = likeClickBigger;
+            divImgTwo.appendChild(heartImg);
+
+            var divNum = document.createElement("div"); // добавила div с лайком в li
+            divNum.id = "divNum";
+            heartImg.onclick = plusLike;
+            divImg.appendChild(divNum);
         }
 
         // при нажатии на кнопку VIEW IDEAS можно скрыть и раскрыть все-все-все идеи на странице
         function menuOpenAndClose() {
             if (document.getElementById('page').style.display == 'none') {
                 var getUl = document.getElementById('page');
-                getUl.style.display = 'block';
+                getUl.style.display = 'inline-block';
             } else {
                 var getUl = document.getElementById('page');
                 getUl.style.display = 'none';
+            }
+        }
+
+        function likeClickBigger() {
+            var d = document.getElementById("heartImg");
+            d.style.width = '27px';
+            d.style.height = '22px';
+            d.onmouseup = likeClickDefault;
+        }
+
+        function likeClickDefault() {
+            var d = document.getElementById("heartImg");
+            d.style.width = '25px';
+            d.style.height = '20px';
+        }
+
+        var num = 0;
+        var countClick = 0;
+
+        function plusLike() {
+            var plusDig = document.getElementById("divNum");
+            for (var i = 0; i <= countClick; i++) {
+                var plus = '+';
+                num += 1;
+                plusDig.textContent = plus + num;
             }
         }
     </script>
