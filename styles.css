@@ -256,6 +256,5 @@ img {
 }
 
 #divNum {
-    float: right;
-    margin: 0 auto;
+    margin-left: 10px;
 }
