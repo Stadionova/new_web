@@ -100,12 +100,12 @@
         // можно ещё придумать, чтобы пользователь выбирал фон для своего li с идеей
         function createLiWithIdea() {
             let liTag = document.createElement('li'); // создала новый элемент с тегом li
-            liTag.textContent = prompt('Type your name'); // заполнила тег содержимым 
+            // liTag.textContent = prompt('Type your name'); // заполнила тег содержимым 
             liTag.className = "liTag"; // создала класс для newDiv
             page.appendChild(liTag); // добавила новый <li> в конец <ul> по id = page
 
             let pTag = document.createElement('p'); // создала новый элемент с тегом li
-            pTag.textContent = prompt('Type your Interface or App #IDEA'); // заполнила тег содержимым
+            // pTag.textContent = prompt('Type your Interface or App #IDEA'); // заполнила тег содержимым
             pTag.className = "pTag"; // создала класс для newDiv
             liTag.appendChild(pTag); // добавила новый <li> в конец <ul> по id = page
             liTag.style.backgroundColor = 'rgb(245, 223, 189)'; // перекрасила фон нового div
@@ -113,26 +113,43 @@
             liTag.style.height = '250px'; // задала высоту для нового div
             liTag.style.border = '1px solid #57756a'; // задала границы для нового div
 
-            var divImg = document.createElement("div"); // добавила div с лайком в li
+            var divImg = document.createElement("div"); // добавила общий div с сердечком и счётчиком сердечек в li
             divImg.id = "divImg";
             liTag.appendChild(divImg);
             divImg.style.width = '100px';
             divImg.style.height = '100px';
 
-            var divImgTwo = document.createElement("div"); // добавила div с лайком в li
+            var divImgTwo = document.createElement("div"); // добавила div для сердечка
             divImgTwo.id = "divImgTwo";
             divImg.appendChild(divImgTwo);
 
-            var heartImg = document.createElement('img'); // добавила картинку сердечка в div для сердечка
+            var heartImg = document.createElement('img'); // добавила картинку сердечка
             heartImg.src = 'img/heart.png';
             heartImg.id = "heartImg";
             heartImg.onmousedown = likeClickBigger;
             divImgTwo.appendChild(heartImg);
 
-            var divNum = document.createElement("div"); // добавила div с лайком в li
+            var divNum = document.createElement("div"); // добавила div для счётчика лайков
             divNum.id = "divNum";
             heartImg.onclick = plusLike;
             divImg.appendChild(divNum);
+
+            // var divForUserPhoto = document.createElement("div"); // добавила div для фото автора
+            // divForUserPhoto.id = "divForUserPhoto";
+            // page.appendChild(divForUserPhoto);
+
+            // var userPhoto = document.createElement('img'); // тег img с фото автора
+            // userPhoto.id = "userPhoto";
+            // divForUserPhoto.appendChild(heartImg);
+
+            var divComments = document.createElement("div"); // добавила div с кнопкой комменты
+            divComments.id = "divComments";
+            divImg.appendChild(divComments);
+
+            var commentsButton = document.createElement('button'); // кнопка комменты
+            commentsButton.textContent = 'Comments';
+            commentsButton.id = "commentsButton";
+            divComments.appendChild(commentsButton);
         }
 
         // при нажатии на кнопку VIEW IDEAS можно скрыть и раскрыть все-все-все идеи на странице

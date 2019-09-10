@@ -247,14 +247,28 @@ ul {
     margin-top: 165px;
     display: flex;
     margin-left: 15px;
+    position: relative; /* чтобы элементы, находящиеся на одной линии в этом блоке не сдвигались вправо при клике на сердечко */
 }
 
 img {
     width: 25px;
     height: 20px;
     text-align: left;
+    margin-top: 50px;
 }
 
 #divNum {
-    margin-left: 10px;
+    margin-left: 35px;
+    margin-top: 51px;
+    position: absolute;
+}
+
+#divImgTwo {
+    position: absolute;
+}
+
+#commentsButton {
+    margin-left: 320px;
+    margin-top: 40px;
+    position: absolute;
 }
