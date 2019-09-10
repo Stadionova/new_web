@@ -290,12 +290,13 @@ img {
     position: absolute;
 }
 
-#commentsDivForForm {
+.commentsDivForForm {
     margin-bottom: 15px;
     position: relative;
+    /* margin-right: 15px; */
 }
 
-#commentsField {
+.commentsField {
     width: 445px;
     background-color: rgb(245, 223, 189);
     text-align: left;
@@ -309,15 +310,16 @@ img {
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
     border: 1px solid rgb(87, 117, 106);
+    padding-left: 5px;
 }
 
-#commentsButtonSend {
+.commentsButtonSend {
     width: 452px;
     height: 30px;
     margin-left: 0px;
     outline: 0 !important;
     position: absolute;
-    margin-top: 27px;
+    margin-top: 30px;
     margin-bottom: 15px;
     border: none;
     background-color: #a9b2a2;
@@ -330,7 +332,7 @@ img {
     border: 1px solid rgb(87, 117, 106);
 }
 
-#commentsButtonSend:hover {
+.commentsButtonSend:hover {
     background-color: #b1bbaa;
 }
 
