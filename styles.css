@@ -306,16 +306,18 @@ img {
     opacity: 0.90;
     border-width:2px;
     border-color:white;
-    border-radius:4px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border: 1px solid rgb(87, 117, 106);
 }
 
 #commentsButtonSend {
-    width: 450px;
+    width: 452px;
     height: 30px;
     margin-left: 0px;
     outline: 0 !important;
     position: absolute;
-    margin-top: 26px;
+    margin-top: 27px;
     margin-bottom: 15px;
     border: none;
     background-color: #a9b2a2;
@@ -323,7 +325,9 @@ img {
     opacity: 0.90;
     border-width:2px;
     border-color:white;
-    border-radius:4px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border: 1px solid rgb(87, 117, 106);
 }
 
 #commentsButtonSend:hover {
