@@ -233,7 +233,7 @@ ul {
     list-style-type: none; 
     margin-top: 10px;
     margin-left: 460px; 
-    margin-bottom: 30px; /* добавила отступ снизу для нового div */
+    margin-bottom: 10px; /* добавила отступ снизу для нового div */
     padding-top: 20px;
     display: 'block'; /* отображение всех li, в скрипте при нажатии на кнопку меняю значение этого свойства на none */
     color: #51665e;
@@ -271,4 +271,12 @@ img {
     margin-left: 320px;
     margin-top: 40px;
     position: absolute;
+}
+
+#commentsType {
+    margin-left: 458px;
+    background-color: rgb(245, 223, 189);
+    border: 1px solid #57756a;
+    opacity: 0.90;
+    border-radius: 4px;
 }

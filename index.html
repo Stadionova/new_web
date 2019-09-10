@@ -149,10 +149,18 @@
             var commentsButton = document.createElement('button'); // кнопка комменты
             commentsButton.textContent = 'Comments';
             commentsButton.id = "commentsButton";
+            commentsButton.onclick = makeDivForComments;
             divComments.appendChild(commentsButton);
+
+            var commentsType = document.createElement("div"); // добавила div, в котором писать коммент
+            commentsType.id = "commentsType";
+            page.appendChild(commentsType);
+            commentsType.style.width = '450px';
+            commentsType.style.height = '100px';
+            commentsType.style.display = 'none';
         }
 
-        // при нажатии на кнопку VIEW IDEAS можно скрыть и раскрыть все-все-все идеи на странице
+        // при нажатии на кнопку VIEW IDEAS можно скрыть и раскрыть все идеи на странице
         function menuOpenAndClose() {
             if (document.getElementById('page').style.display == 'none') {
                 var getUl = document.getElementById('page');
@@ -185,6 +193,22 @@
                 var plus = '+';
                 num += 1;
                 plusDig.textContent = plus + num;
+            }
+        }
+
+        function makeDivForComments() {
+            // if (document.getElementById("page").style.height == '250px') {
+            //     var gotLiTagForChangeSize = document.getElementById("page"); // достала li тег
+            //     gotLiTagForChangeSize.style.height = '500px';
+            // } else {
+            //     gotLiTagForChangeSize.style.height = '250px';
+            // }
+            if (document.getElementById("commentsType").style.display == 'none') {
+                var gotCommentsDiv = document.getElementById("commentsType"); // достала новый блок для написания комментария
+                gotCommentsDiv.style.display = 'inline-block';
+            } else {
+                var gotCommentsDiv = document.getElementById("commentsType");
+                gotCommentsDiv.style.display = 'none';
             }
         }
     </script>
