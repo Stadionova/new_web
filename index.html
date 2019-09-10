@@ -55,42 +55,6 @@
         </div>
     </div>
     <script>
-        // чтобы не инлайнить onclick на каждую кнопку или ссылку, при нажатии на которую будет срабатывать скриптовая функция.
-        // можно просто вызывать функцию при нажатии на определённые теги или классы
-        // либо так:
-        // window.addEventListener("click", function (e) {
-        //     if (e.target.className == "authorization" || e.target.className == "buttonssssss") {
-        //         alert("КНОПАЧКЕ!!!");
-        //         var newDiv = document.createElement('div'); // создала новый элемент div
-        //         newDiv.innerHTML = 'NEW IDEA!'; // вписала в него текстовый узел
-        //         newDiv.className = "newDiv"; // создала класс для newDiv
-        //         document.body.appendChild(newDiv); // добавила newDiv в самый конец body
-        //         // можно либо тут прям через скрипт устанавливать свойства для новых узлов, либо через css по классу
-        //         // пару свойств я задам тут, остальные задам в css для класса: newDiv
-        //         newDiv.style.backgroundColor = 'yellow'; // перекрасила фон нового div
-        //         newDiv.style.width = '200px'; // задала ширину для нового div
-        //         newDiv.style.height = '200px'; // задала высоту для нового div
-        //         newDiv.style.border = '3px solid black'; // задала границы для нового div
-        //     }
-        // });
-
-        // либо так:
-        // написала функцию, которая при нажатии на кнопку: Добавить новость - добавляет новый div на страницу
-        // function createDivWithIdea() {
-        //     var newDiv = document.createElement('div'); // создала новый элемент div
-        //     newDiv.innerHTML = 'Write your NEW IDEA!'; // вписала в него текстовый узел
-        //     newDiv.className = "newDiv"; // создала класс для newDiv
-        //     newDiv.id = "new"; // создала класс для newDiv
-        //     document.body.appendChild(newDiv); // добавила newDiv в самый конец body
-        //     body.insertBefore(newDiv, body.lastChild) //OR insert it
-        //     // можно либо тут прям через скрипт устанавливать свойства для новых узлов, либо через css по классу
-        //     // пару свойств я задам тут, остальные задам в css для класса: newDiv
-        //     newDiv.style.backgroundColor = 'rgb(245, 223, 189)'; // перекрасила фон нового div
-        //     newDiv.style.width = '450px'; // задала ширину для нового div
-        //     newDiv.style.height = '200px'; // задала высоту для нового div
-        //     newDiv.style.border = '1px solid #42554e'; // задала границы для нового div
-        // }
-
         // создала ul, в который буду помещаться новые идеи
         let ulTag = document.createElement('ul'); // создала новый элемент с тегом ul
         ulTag.setAttribute('id', 'page'); // добавила атрибут id и его значение page для тега ul
@@ -134,14 +98,6 @@
             heartImg.onclick = plusLike;
             divImg.appendChild(divNum);
 
-            // var divForUserPhoto = document.createElement("div"); // добавила div для фото автора
-            // divForUserPhoto.id = "divForUserPhoto";
-            // page.appendChild(divForUserPhoto);
-
-            // var userPhoto = document.createElement('img'); // тег img с фото автора
-            // userPhoto.id = "userPhoto";
-            // divForUserPhoto.appendChild(heartImg);
-
             var divComments = document.createElement("div"); // добавила div с кнопкой комменты
             divComments.id = "divComments";
             divImg.appendChild(divComments);
@@ -152,12 +108,27 @@
             commentsButton.onclick = makeDivForComments;
             divComments.appendChild(commentsButton);
 
-            var commentsType = document.createElement("div"); // добавила div, в котором писать коммент
-            commentsType.id = "commentsType";
-            page.appendChild(commentsType);
-            commentsType.style.width = '450px';
-            commentsType.style.height = '100px';
-            commentsType.style.display = 'none';
+            var commentsDivForForm = document.createElement("div"); // добавила div, в котором писать коммент
+            commentsDivForForm.id = "commentsDivForForm";
+            page.appendChild(commentsDivForForm);
+
+            var commentsForm = document.createElement("form"); // добавила div, в котором писать коммент
+            commentsForm.id = "commentsForm";
+            commentsDivForForm.appendChild(commentsForm);
+            commentsForm.style.width = '450px';
+            commentsForm.style.display = 'none';
+
+            var commentsField = document.createElement("input"); // добавила div, в котором писать коммент
+            commentsField.id = "commentsField";
+            commentsField.style.fontFamily = 'Montserrat, sans-serif';
+            commentsField.style.fontSize = '15px';
+            commentsForm.appendChild(commentsField);
+
+            var commentsButtonSend = document.createElement("input"); // добавила div, в котором писать коммент
+            commentsButtonSend.id = "commentsButtonSend";
+            commentsForm.appendChild(commentsButtonSend);
+            commentsButtonSend.style.fontFamily = 'Montserrat, sans-serif';
+            commentsButtonSend.style.fontSize = '15px';
         }
 
         // при нажатии на кнопку VIEW IDEAS можно скрыть и раскрыть все идеи на странице
@@ -197,17 +168,26 @@
         }
 
         function makeDivForComments() {
-            // if (document.getElementById("page").style.height == '250px') {
-            //     var gotLiTagForChangeSize = document.getElementById("page"); // достала li тег
-            //     gotLiTagForChangeSize.style.height = '500px';
-            // } else {
-            //     gotLiTagForChangeSize.style.height = '250px';
-            // }
-            if (document.getElementById("commentsType").style.display == 'none') {
-                var gotCommentsDiv = document.getElementById("commentsType"); // достала новый блок для написания комментария
+            var gotCommentsForm = document.getElementById("commentsForm");
+            gotCommentsForm.setAttribute('action', 'index.html');
+            gotCommentsForm.setAttribute('autocomplete', 'off');
+
+            var gotCommentsField = document.getElementById("commentsField");
+            gotCommentsField.setAttribute('type', 'text');
+            gotCommentsField.setAttribute('name', 'key word');
+            gotCommentsField.className = "field";
+            gotCommentsField.setAttribute('TextMode', 'key MultiLine');
+
+            var gotCommentsButton = document.getElementById("commentsButtonSend");
+            gotCommentsButton.setAttribute('type', 'submit');
+            gotCommentsButton.setAttribute('value', 'Send');
+            gotCommentsButton.className = "buttonHat";
+
+            if (document.getElementById("commentsForm").style.display == 'none') {
+                var gotCommentsDiv = document.getElementById("commentsForm"); // достала новый блок для написания комментария
                 gotCommentsDiv.style.display = 'inline-block';
             } else {
-                var gotCommentsDiv = document.getElementById("commentsType");
+                var gotCommentsDiv = document.getElementById("commentsForm");
                 gotCommentsDiv.style.display = 'none';
             }
         }

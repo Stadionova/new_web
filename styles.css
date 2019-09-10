@@ -119,7 +119,6 @@ div p {
 }
 
 form {
-    margin-right: 80px;
     font-family: 'Montserrat', sans-serif;
     size: 15pt;
     height: 30px;
@@ -134,7 +133,6 @@ input {
     background-color: #a9b2a2;
     font-family: 'Montserrat', sans-serif;
     size: 15pt;
-    margin-left: 10px;
     width: 200px;
     height: 30px;
     outline: none;
@@ -142,7 +140,9 @@ input {
 
 .field {
     width: 200px;
-    height: 25px;
+    height: 26px;
+    margin-left: 0px;
+    padding-left: 5px;
 }
 
 .field:focus {
@@ -161,10 +161,12 @@ input {
 .buttonHat {
     width: 80px;
     height: 30px;
+    border: none;
 }
 
 .buttonHat:hover {
     border-color: rgb(245, 223, 189);
+    text-shadow: -1px 1px #b19f8b;
 }
 
 .hat div:nth-child(7),
@@ -231,6 +233,21 @@ ul {
     border-radius:4px;
     background: -webkit-linear-gradient(top, rgb(245, 223, 189) 0%, rgb(245, 223, 189) 0%); /* фон всех новый идей */
     list-style-type: none; 
+    margin-top: 30px;
+    margin-left: 460px; 
+    margin-bottom: 10px; /* добавила отступ снизу для нового div */
+    padding-top: 20px;
+    display: 'block'; /* отображение всех li, в скрипте при нажатии на кнопку меняю значение этого свойства на none */
+    color: #51665e;
+}
+
+.liTag:nth-child(1){
+    opacity: 0.90;
+    border-width:2px;
+    border-color:white;
+    border-radius:4px;
+    background: -webkit-linear-gradient(top, rgb(245, 223, 189) 0%, rgb(245, 223, 189) 0%); /* фон всех новый идей */
+    list-style-type: none; 
     margin-top: 10px;
     margin-left: 460px; 
     margin-bottom: 10px; /* добавила отступ снизу для нового div */
@@ -273,10 +290,43 @@ img {
     position: absolute;
 }
 
-#commentsType {
-    margin-left: 458px;
-    background-color: rgb(245, 223, 189);
-    border: 1px solid #57756a;
-    opacity: 0.90;
-    border-radius: 4px;
+#commentsDivForForm {
+    margin-bottom: 15px;
+    position: relative;
 }
+
+#commentsField {
+    width: 445px;
+    background-color: rgb(245, 223, 189);
+    text-align: left;
+    outline: 0 !important;
+    position: absolute;
+    margin-left: 4px;
+    border: none;
+    opacity: 0.90;
+    border-width:2px;
+    border-color:white;
+    border-radius:4px;
+}
+
+#commentsButtonSend {
+    width: 450px;
+    height: 30px;
+    margin-left: 0px;
+    outline: 0 !important;
+    position: absolute;
+    margin-top: 26px;
+    margin-bottom: 15px;
+    border: none;
+    background-color: #a9b2a2;
+    margin-left: 4px;
+    opacity: 0.90;
+    border-width:2px;
+    border-color:white;
+    border-radius:4px;
+}
+
+#commentsButtonSend:hover {
+    background-color: #b1bbaa;
+}
+
