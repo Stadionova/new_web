@@ -233,7 +233,7 @@ ul {
     border-radius:4px;
     background: -webkit-linear-gradient(top, rgb(245, 223, 189) 0%, rgb(245, 223, 189) 0%); /* фон всех новый идей */
     list-style-type: none; 
-    margin-top: 30px;
+    margin-top: 50px;
     margin-left: 460px; 
     margin-bottom: 10px; /* добавила отступ снизу для нового div */
     padding-top: 20px;
@@ -290,10 +290,13 @@ img {
     position: absolute;
 }
 
+#commentsDivForm {
+    display: inline-block;
+}
+
 .commentsDivForForm {
     margin-bottom: 15px;
     position: relative;
-    /* margin-right: 15px; */
 }
 
 .commentsField {
@@ -302,7 +305,7 @@ img {
     text-align: left;
     outline: 0 !important;
     position: absolute;
-    margin-left: 4px;
+    margin-left: 461px;
     border: none;
     opacity: 0.90;
     border-width:2px;
@@ -316,14 +319,13 @@ img {
 .commentsButtonSend {
     width: 452px;
     height: 30px;
-    margin-left: 0px;
     outline: 0 !important;
     position: absolute;
     margin-top: 30px;
     margin-bottom: 15px;
     border: none;
     background-color: #a9b2a2;
-    margin-left: 4px;
+    margin-left: 461px;
     opacity: 0.90;
     border-width:2px;
     border-color:white;
@@ -335,4 +337,3 @@ img {
 .commentsButtonSend:hover {
     background-color: #b1bbaa;
 }
-

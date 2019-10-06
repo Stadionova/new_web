@@ -60,6 +60,11 @@
         ulTag.setAttribute('id', 'page'); // добавила атрибут id и его значение page для тега ul
         document.body.appendChild(ulTag); // добавила ul в body
 
+        var commentsDivForForm = document.createElement("div"); // добавила div для формы с комментом
+        commentsDivForForm.id = "commentsDivForm";
+        commentsDivForForm.className = "commentsDivForForm";
+        document.body.appendChild(commentsDivForForm);
+
         // каждая новая идея записывается в li общего тега ul при нажатии на кнопку: SUBMIT A NEW IDEA
         // можно ещё придумать, чтобы пользователь выбирал фон для своего li с идеей
         function createLiWithIdea() {
@@ -107,6 +112,38 @@
             commentsButton.id = "commentsButton";
             commentsButton.onclick = makeDivForComments;
             divComments.appendChild(commentsButton);
+
+
+
+
+            var commentsDivForForm = document.createElement("div"); // добавила div для формы с комментом
+            commentsDivForForm.className = "commentsDivForForm";
+            page.appendChild(commentsDivForForm);
+
+            var commentsForm = document.createElement("form"); // добавила форму
+            commentsForm.className = "commentsForm";
+            commentsDivForForm.appendChild(commentsForm);
+            commentsForm.style.width = '450px';
+            commentsForm.setAttribute('autocomplete', 'off');
+            commentsForm.setAttribute('action', 'index.html');
+
+            var commentsField = document.createElement("input"); // добавила поле для написания коммента
+            commentsField.className = "commentsField";
+            commentsField.style.fontFamily = 'Montserrat, sans-serif';
+            commentsField.style.fontSize = '15px';
+            commentsForm.appendChild(commentsField);
+            commentsField.setAttribute('type', 'text');
+            commentsField.setAttribute('name', 'key word');
+            commentsField.setAttribute('TextMode', 'key MultiLine');
+
+            var commentsButtonSend = document.createElement("input"); // добавила кнопку отправки коммента
+            commentsButtonSend.className = "commentsButtonSend";
+            commentsForm.appendChild(commentsButtonSend);
+            commentsButtonSend.style.fontFamily = 'Montserrat, sans-serif';
+            commentsButtonSend.style.fontSize = '15px';
+            commentsButtonSend.onclick = closeCommentField;
+            commentsButtonSend.setAttribute('type', 'submit');
+            commentsButtonSend.setAttribute('value', 'Send');
         }
 
         // при нажатии на кнопку VIEW IDEAS можно скрыть и раскрыть все идеи на странице
@@ -146,46 +183,14 @@
         }
 
         function makeDivForComments() {
-            var commentsDivForForm = document.createElement("div"); // добавила div для формы с комментом
-            commentsDivForForm.className = "commentsDivForForm";
-            page.appendChild(commentsDivForForm);
-            commentsDivForForm.style.display = 'inline-block';
-
-            var commentsForm = document.createElement("form"); // добавила форму
-            commentsForm.className = "commentsForm";
-            commentsDivForForm.appendChild(commentsForm);
-            commentsForm.style.width = '450px';
-            commentsForm.style.display = 'none';
-            commentsForm.style.display = 'inline-block';
-            commentsForm.setAttribute('autocomplete', 'off');
-            commentsForm.setAttribute('action', 'index.html');
-
-            var commentsField = document.createElement("input"); // добавила поле для написания коммента
-            commentsField.className = "commentsField";
-            commentsField.style.fontFamily = 'Montserrat, sans-serif';
-            commentsField.style.fontSize = '15px';
-            commentsForm.appendChild(commentsField);
-            commentsField.style.display = 'inline-block';
-            commentsField.setAttribute('type', 'text');
-            commentsField.setAttribute('name', 'key word');
-            commentsField.setAttribute('TextMode', 'key MultiLine');
-
-            var commentsButtonSend = document.createElement("input"); // добавила кнопку отправки коммента
-            commentsButtonSend.className = "commentsButtonSend";
-            commentsForm.appendChild(commentsButtonSend);
-            commentsButtonSend.style.fontFamily = 'Montserrat, sans-serif';
-            commentsButtonSend.style.fontSize = '15px';
-            commentsButtonSend.onclick = closeCommentField;
-            commentsButtonSend.style.display = 'inline-block';
-            commentsButtonSend.setAttribute('type', 'submit');
-            commentsButtonSend.setAttribute('value', 'Send');
+            var gotCommentsDivForForm = document.getElementById("commentsDivForm");
+            gotCommentsDivForForm.style.display = 'inline-block';
         }
 
         // показывать алерт при успешной отправке коммента
         function closeCommentField() {
             var gotCommentsDiv = document.getElementsByClassName("commentsForm");
             alert('Ваш комментарий успешно добавлен!');
-            // gotCommentsDiv.style.display = 'none';
             return false;
         }
 
